@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us" id="iii">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="UTF-8"/>
+	<meta name="description" content="Vincent V. Toscano website.">
+	<meta name="keywords" content="Vincent V. Toscano">
+	<meta name="author" content="Vincent V. Toscano">
+	<meta name="copyright" content="&copy;2015 Vincent V. Toscano">
+
+	<title>Video background-cover</title>
+
+	<link rel="shortcut icon" href="assets/imgs/global/favicon_16x16.ico"/>
+	<link type="text/css" href="css/main-min.css" rel="stylesheet">
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+
+	<script type="text/javascript">var app;
+	// ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+	// ENUM
+	// ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+	var ENUM = {
+		EVT_ON_ANIMATE: "evt_on_animate",
+		EVT_ON_ANIMATE_COMPLETE: "evt_on_animate_complete"
+	};
+	</script>
+</head>
+<body>
+	<video id="vid1" class="bgvid" src="http://techslides.com/demos/sample-videos/small.mp4" controls></video>
+	<!--<div id="root_cont">-->
+		<!--<div id="rootView_cont"></div>-->
+	<!--</div>-->
+	<!--<div id="shell_nav_top"></div>-->
+	<script>
+		var needsRedraw = document.getElementById('vid1');
+
+		function redraw() {
+			//marginLeft : '-' + ($('#bgvid').width()/2) + 'px'
+			needsRedraw.style.marginLeft = '-' + (needsRedraw.offsetWidth/2) + 'px'
+			console.log(needsRedraw.offsetWidth);
+		}
+		TweenLite.ticker.addEventListener("tick", redraw);
+	</script>
+</body>
+
+</html>

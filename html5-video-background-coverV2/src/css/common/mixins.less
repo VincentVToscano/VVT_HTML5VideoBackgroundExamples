@@ -1,0 +1,244 @@
+// translate3d --- Force hardware acceleration
+// @usage	.translate3d(0);
+.translate3d (@x:0, @y: 0, @z: 0) {
+	-webkit-transform:translate3d(@x, @y, @z);
+	-moz-transform:	translate3d(@x, @y, @z);
+	-ms-transform:	translate3d(@x, @y, @z);
+	-o-transform: 	translate3d(@x, @y, @z);
+	transform:		translate3d(@x, @y, @z);
+}
+
+// EASINGS
+@ease-out-ex: cubic-bezier(.15,.75,.49,.93);
+
+// UTIL MIXINS
+.scale (@factor) {
+  -webkit-transform: scale(@factor);
+  -moz-transform: 	 scale(@factor);
+  -ms-transform: 	scale(@factor);
+  -o-transform: scale(@factor);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=@{factor}, M12=0, M21=0, M22=@{factor}, SizingMethod='auto expand')";
+}
+.borderRadius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.opacity(@opacity:1) {
+  @msIE: @opacity * 100;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msIE})";
+//  filter: alpha(opacity=1);
+  -webkit-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -moz-opacity: @opacity;
+  opacity: @opacity;
+}
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start, @stop);
+  background-image: -moz-linear-gradient(@origin, @start, @stop);
+  background-image: -o-linear-gradient(@origin, @start, @stop);
+  background-image: -ms-linear-gradient(@origin, @start, @stop);
+  background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.linearGradient(@stop1:0, @color1:#eeff99, @stop2:50%, @color2:#ff3300, @stop3:100%, @color3:#ccc){
+  background-color:@color2;
+  background:-webkit-gradient(linear, left bottom, left top, color-stop(@stop1, @color1), color-stop(@stop2, @color2), color-stop(@stop3, @color3));
+  background:-moz-linear-gradient(center bottom, @color1 @stop1, @color2 @stop2, @color3 @stop3);
+  background:-ms-linear-gradient(center bottom, @color1 @stop1, @color2 @stop2, @color3 @stop3);
+  background:-o-linear-gradient(center bottom, @color1 @stop1, @color2 @stop2, @color3 @stop3);
+  background:linear-gradient(center bottom, @color1 @stop1, @color2 @stop2, @color3 @stop3);
+  -pie-background: linear-gradient(@color1, @color2, @color3);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=%d,endColorstr=%d)", @color1, @color3));
+}
+
+.wordwrap() {
+  white-space: pre-wrap;      /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap;     /* Opera <7 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  word-wrap: break-word;      /* IE */
+}
+
+.pos (@x : 0, @y: 0, @zi : 0, @p : absolute) {
+    position: @p;
+    top: @y;
+    left: @x;
+    z-index: @zi;
+}
+
+.fullwindow () {
+    width: 100%;
+    height: 100%;
+}
+
+.bkgdCover (@url) when (@url) {
+    background: url(@url) no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.bkgdCover () {
+	background: #000 no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+// CREATING COLOR RECTANGLES
+
+.rect (@w, @h, @c : rgba(255, 255, 255, 0.5)) {
+    content: "";
+    display: block;
+    position: absolute;
+    width: @w;
+    height: @h;
+    background-color: @c;
+}
+
+// MISC VENDOR PREFIXES
+
+.border-box () {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.box-shadow (@params) {
+    -moz-box-shadow: @params;
+    -webkit-box-shadow: @params;
+    box-shadow: @params;
+}
+
+// ANIMATION + TRANSITION + TRANSFORM
+.transition (@props: all 1s ease) {
+    -webkit-transition: @props;
+    -moz-transition: @props;
+    -o-transition: @props;
+    -ms-transition: @props;
+    transition: @props;
+}
+//.transition (@prop: all, @time: .2s, @ease: linear) {
+//    -webkit-transition: @prop @time @ease;
+//    -moz-transition: @prop @time @ease;
+//    -o-transition: @prop @time @ease;
+//    -ms-transition: @prop @time @ease;
+//    transition: @prop @time @ease;
+//}
+//.transform(5deg, 0.5, 1deg, 0px);
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+  -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+  transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+
+.perspective (@param) {
+    -webkit-perspective: @param;
+    -moz-perspective: @param;
+}
+
+.perspective-origin (@params) {
+    -webkit-perspective-origin: @params;
+    -moz-perspective-origin: @params;
+}
+
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin:    @x @y;
+  -ms-transform-origin:     @x @y;
+  -o-transform-origin:      @x @y;
+}
+
+.animation (@params) {
+    -webkit-animation: @params;
+    -moz-animation: @params;
+    -o-animation: @params;
+    animation: @params;
+}
+
+.animation-fill-mode (@params) {
+    -webkit-animation-fill-mode: @params;
+    -moz-animation-fill-mode: @params;
+}
+
+.backface-visibility (@value) {
+    backface-visibility: @value;
+    -webkit-backface-visibility: @value;
+    -moz-backface-visibility: @value;
+    -ms-backface-visibility: @value;
+}
+
+.preserve3D(){
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.centerContainer(@width, @height){
+  display: block;
+  width: @width;height: @height;
+  position: absolute;left: 50%;top: 50%;
+  margin: -(@height/2) 0 0 -(@width/2);
+  background: transparent;
+}
+//        -webkit-transform: rotate(180deg);  /* Chrome, Safari 3.1+ */
+//        -moz-transform: rotate(180deg);  /* Firefox 3.5-15 */
+//        -ms-transform: rotate(180deg);  /* IE 9 */
+//        -o-transform: rotate(180deg);  /* Opera 10.50-12.00 */
+//        -khtml-transform: rotate(180deg);/* For Linux*/
+//        transform: rotate(180deg);  /* Firefox 16+, IE 10+, Opera 12.10+ */
+//        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* for ie */
+
+
+
+.user-select(@val){
+    -webkit-user-select:@val;
+    -moz-user-select:@val;
+    -ms-user-select:@val;
+    -o-user-select:@val;
+    user-select:@val;
+}
+
+
+
+// transitionMultiple --- Handle multiple CSS3 transitions in a single statement
+// @usage	.transitionMultiple(width .33s linear 0s, height .2s linear 0s;);
+.transitionMultiple (...){
+//  @value: ~`"@{arguments}".replace(/[[]]|,sX/g, '')`;
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+// setPseudoClasses --- Button states
+// @usage	.setPseudoClasses(@brown_1, darkolivegreen, rgba(1, 22, 36, 0.4), rgba(1, 22, 36, 0.99));
+.setPseudoClasses(@def_bkgd:darkgray, @def_color: #888888, @hover_bkgd: gray, @hover_color: black){
+
+  .transitionMultiple(background .4s ease-in-out, color .5s linear;);
+  background: @def_bkgd;
+  &:link, &:visited, &:active{
+	color:@def_color;
+	background: @def_bkgd;
+  }
+
+  &:focus, &.disabled, &[disabled] {
+	color:@def_color;
+	background: @def_bkgd;
+  }
+
+  &:hover{
+	color:@hover_color;
+	background: @hover_bkgd;
+  }
+}
+

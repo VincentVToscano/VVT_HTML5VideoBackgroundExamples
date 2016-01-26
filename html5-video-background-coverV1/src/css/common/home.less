@@ -1,0 +1,31 @@
+video.background {
+	position: fixed;           // Make it full screen (fixed)
+	right: 0;
+	bottom: 0;
+	z-index: -1;               // Put on background
+
+	min-width: 100%;           // Expand video
+	min-height: 100%;
+	width: auto;               // Keep aspect ratio
+	height: auto;
+
+	top: 50%;                  // Vertical center offset
+	left: 50%;                 // Horizontal center offset
+
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+video.bgvid {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	overflow: hidden;
+}

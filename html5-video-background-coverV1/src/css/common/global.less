@@ -1,0 +1,101 @@
+* {
+  .translate3d(0);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #434240 no-repeat top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+// Media query labels for dev
+body {
+  &:after {
+	background: red;
+	color: #000;
+	content: "undefined";
+	left: 0;
+	bottom:0;
+	.opacity(80);
+	padding: .5em 1em;
+	position: absolute;
+	text-align: center;
+	z-index: 99;
+	@media @mobile {
+	  background: orange;
+	  content: "mobile";
+	}
+	@media @tablet {
+	  background: purple;
+	  content: "tablet";
+	}
+	@media @desktop {
+	  background: green;
+	  content: "desktop";
+	}
+	@media @desktop-xl {
+	  background: paleturquoise;
+	  content: "desktop-xl";
+	}
+	@media @highdensity{
+	  background: deeppink;
+	  content: "highdensity";
+	}
+  }
+}
+
+
+#root_cont {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0 0 0 0;
+  box-shadow: 0 0 100px black;
+}
+
+#rootView_cont {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background: transparent;
+}
+
+
+.view {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0 0 0 0;
+  height: auto;
+  overflow: hidden;
+  background: lightblue no-repeat top center;
+  /*border: 4px black solid;*/
+}
+
+.viewSub {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin: 0 0 0 0;
+  height: auto;
+  overflow: hidden;
+  background: darkolivegreen;
+  font: Helvetica, Arial;
+  color: antiquewhite;
+  letter-spacing: 1pt;
+  text-shadow: none;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}

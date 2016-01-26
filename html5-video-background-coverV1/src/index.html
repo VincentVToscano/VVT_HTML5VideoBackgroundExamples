@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us" id="iii">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="UTF-8"/>
+	<meta name="description" content="Vincent V. Toscano website.">
+	<meta name="keywords" content="Vincent V. Toscano">
+	<meta name="author" content="Vincent V. Toscano">
+	<meta name="copyright" content="&copy;2015 Vincent V. Toscano">
+
+	<title>Video background-cover</title>
+
+	<link rel="shortcut icon" href="assets/imgs/global/favicon_16x16.ico"/>
+	<link type="text/css" href="css/main-min.css" rel="stylesheet">
+
+	<script src="libs/greensock-js/TweenMax_1-17-0.min.js"></script>
+
+</head>
+<body>
+	<video id="vid1" class="bgvid" src="http://techslides.com/demos/sample-videos/small.mp4" controls></video>
+
+	<script>
+		var needsRedraw = document.getElementById('vid1');
+
+		function redraw() {
+			//marginLeft : '-' + ($('#bgvid').width()/2) + 'px'
+			needsRedraw.style.marginLeft = '-' + (needsRedraw.offsetWidth/2) + 'px';
+			console.log(needsRedraw.offsetWidth);
+		}
+		TweenLite.ticker.addEventListener("tick", redraw);
+	</script>
+</body>
+
+</html>

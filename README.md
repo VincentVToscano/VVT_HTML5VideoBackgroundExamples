@@ -4,4 +4,4 @@
 Video background examples.
 
 # License  
-This project is licensed under the terms of the MIT license. Please see the full license in the file named LICENSE.md.
+This project is licensed under the terms of the MIT license. Please read the full license terms in the file named LICENSE.

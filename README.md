@@ -1,3 +1,5 @@
+[![Vincent V. Toscano](http://vflux.biz/assets/imgs/global/VincentVToscanoTM2015_300x300.png)](http://vflux.biz)
+
 # VVT_HTML5VideoBackgroundExamples
 Video background examples.
 
